@@ -12,7 +12,7 @@
     <artifactId>SchoolGradeWallet</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>SchoolGradeWallet</name>
-    <description>Demo project for Spring Boot</description>
+    <description>My Family Telegram Bot</description>
     <properties>
         <java.version>11</java.version>
     </properties>
@@ -36,6 +36,13 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>org.telegram</groupId>
+            <artifactId>telegrambots-spring-boot-starter</artifactId>
+            <version>5.5.0</version>
+        </dependency>
+
     </dependencies>
 
     <build>
