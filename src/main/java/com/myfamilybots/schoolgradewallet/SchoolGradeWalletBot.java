@@ -31,7 +31,16 @@ public class SchoolGradeWalletBot extends TelegramWebhookBot {
         if (update.getMessage() != null && update.getMessage().hasText()) {
             Message inMessage = update.getMessage();
             long chatId = inMessage.getChatId();
-            String messageText = inMessage.getChat().getFirstName() + ", echo bot returned -> " + inMessage.getText();
+            String messageText = "";
+
+            if (inMessage.getText().equals("/start"))
+                return new SendMessage().setChatId(chatId).setText(getWelcomeMessage());
+
+            if (inMessage.getText().equals("Ты ещё живой?")) {
+                messageText = "Не дождёшься! :)";
+            } else {
+                messageText = inMessage.getChat().getFirstName() + ", echo bot returned -> " + inMessage.getText();
+            }
 
             return new SendMessage()
                     .setChatId(chatId)
@@ -66,5 +75,21 @@ public class SchoolGradeWalletBot extends TelegramWebhookBot {
 
     public void setBotToken(String botToken) {
         this.botToken = botToken;
+    }
+
+    private String getWelcomeMessage() {
+        return "Приветствую мой Друг!\n"
+                + "Вскоре тут ты сможешь копить и обменивать свои оценки на разные классные штуки. Например, на время "
+                + "игры в Fortnite и даже, если накопишь достаточно оценок, на крутые скины для своего бойца. И это "
+                + "ещё не всё, но об этом позже \u23F3.\n"
+                + "Итак, наша виртуальная валюта, на которую ты будешь обменивать свои пятёрки, называется \"Талант\". "
+                + "Обменный курс лёгко запомнить, каждая оценка по любому предмету ровна:\n\n"
+                + "\u26A1 5 = 10 талантов\n"
+                + "\u2705 4 = 4 таланта\n"
+                + "\u2B55 3 = 0 талантов\n"
+                + "\u26D4 2 = -50 талантов\n"
+                + "\u274C 1 обнуляет все накопленные таланты\n\n"
+                + "Что сколько стоит, будет рассказано отдельной рассылкой, а пока готовься - запуск уже скоро, в новом году!\n"
+                + "Учись хорошо мой Друг и всё у тебя будет!";
     }
 }
