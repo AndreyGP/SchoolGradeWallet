@@ -2,6 +2,7 @@ package com.myfamilybots.instamart;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 /**
@@ -9,6 +10,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
  * FileName: InstamartApplication.java
  * Date/time: 13 декабрь 2021 in 3:24
  */
+@RestController
 @SpringBootApplication
 @EnableWebMvc
 public class InstamartApplication {
