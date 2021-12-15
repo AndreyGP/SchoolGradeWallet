@@ -1,6 +1,8 @@
 package com.myfamilybots.instamart.bots;
 
+import com.myfamilybots.instamart.service.MessageHandler;
 import com.myfamilybots.instamart.service.MessageService;
+import com.myfamilybots.instamart.service.impl.handlers.MainMessageHandler;
 import com.myfamilybots.instamart.service.impl.services.IncomingDocumentService;
 import com.myfamilybots.instamart.service.impl.services.IncomingMessageService;
 import lombok.Getter;
@@ -34,22 +36,10 @@ public class WebHookDeliveryBot extends TelegramWebhookBot {
 
     @Override
     public BotApiMethod<?> onWebhookUpdateReceived(Update update) {
-        Message inMessage = update.getMessage();
-        if (inMessage == null)
+        if (update.getMessage() == null)
             return null;
-
-        if (inMessage.hasText()) {
-            MessageService service = (IncomingMessageService) getContext().getBean("IncomingMessageService");
-            return service.responseOnIncomingMessage(inMessage, botToken);
-        }
-
-        if (inMessage.hasDocument()) {
-            MessageService service = (IncomingDocumentService) getContext().getBean("IncomingDocumentService");
-
-            return service.responseOnIncomingMessage(inMessage, botToken);
-        }
-
-        return null;
+        return ((MessageHandler) context.getBean("MessageHandler"))
+                .response(update.getMessage(), botToken);
     }
 
     @Override

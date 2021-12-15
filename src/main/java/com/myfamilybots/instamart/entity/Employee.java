@@ -18,6 +18,7 @@ public interface Employee {
     String getEmployeeFullName();
     String getBaseTradePoint();
     String getCurrentTradePoint();
+    boolean isTrainee();
     EmployeeRole getEmployeeRole();
 
 }

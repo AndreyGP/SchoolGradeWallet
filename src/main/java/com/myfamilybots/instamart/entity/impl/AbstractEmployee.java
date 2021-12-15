@@ -14,6 +14,7 @@ import lombok.Setter;
 @Setter
 public abstract class AbstractEmployee implements Employee {
     protected EmployeeRole employeeRole;
+    protected boolean isTrainee = true;
     protected String chatId;
     protected String username;
     protected String fullName;
@@ -64,6 +65,11 @@ public abstract class AbstractEmployee implements Employee {
     @Override
     public EmployeeRole getEmployeeRole() {
         return employeeRole;
+    }
+
+    @Override
+    public boolean isTrainee() {
+        return isTrainee;
     }
 
     @Override
