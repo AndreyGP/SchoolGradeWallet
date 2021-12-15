@@ -1,6 +1,8 @@
 package com.myfamilybots.instamart.util;
 
 import lombok.Builder;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
 
 import javax.net.ssl.HttpsURLConnection;
 import java.io.DataOutputStream;
@@ -15,7 +17,6 @@ import java.net.URL;
  */
 @Builder
 public class SendExceptionMessage {
-    private final String USER_AGENT = "Mozilla/5.0";
     private String botToken;
     private String chatId;
     private String message;
@@ -54,8 +55,6 @@ public class SendExceptionMessage {
             HttpsURLConnection con = (HttpsURLConnection) obj.openConnection();
 
             con.setRequestMethod("POST");
-            con.setRequestProperty("User-Agent", USER_AGENT);
-            con.setRequestProperty("Accept-Language", "en-US,en;q=0.5");
 
             String urlParameters = String.format("bot=%s&chat_id=%s&text=%s",
                     botToken, chatId, message);

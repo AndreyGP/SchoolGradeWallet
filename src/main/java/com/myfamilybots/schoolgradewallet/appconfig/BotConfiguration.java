@@ -5,10 +5,8 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
-//import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.telegram.telegrambots.bots.DefaultBotOptions;
-import org.telegram.telegrambots.meta.ApiContext;
 
 /**
  * SchoolGradeWallet Created by Home Work Studio AndrHey [diver]
@@ -18,7 +16,6 @@ import org.telegram.telegrambots.meta.ApiContext;
 @Getter
 @Setter
 @Configuration
-//@ComponentScan("com.myfamilybots.schoolgradewallet")
 @ConfigurationProperties(prefix = "tgbot")
 public class BotConfiguration {
     private String webHookPath;
@@ -31,7 +28,7 @@ public class BotConfiguration {
 
     @Bean
     public SchoolGradeWalletBot schoolGradeWalletBot() {
-        DefaultBotOptions options = ApiContext.getInstance(DefaultBotOptions.class);
+        DefaultBotOptions options = new DefaultBotOptions();
         options.setProxyHost(proxyHost);
         options.setProxyPort(proxyPort);
         options.setProxyType(proxyType);

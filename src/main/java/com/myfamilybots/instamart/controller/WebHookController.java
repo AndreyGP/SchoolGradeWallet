@@ -1,7 +1,7 @@
 package com.myfamilybots.instamart.controller;
 
 
-import com.myfamilybots.instamart.DeliveryBot;
+import com.myfamilybots.instamart.bots.WebHookDeliveryBot;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,10 +16,10 @@ import org.telegram.telegrambots.meta.api.objects.Update;
  */
 @RestController
 public class WebHookController {
-    private final DeliveryBot bot;
+    private final WebHookDeliveryBot bot;
 
     @Autowired
-    public WebHookController(DeliveryBot bot) {
+    public WebHookController(WebHookDeliveryBot bot) {
         this.bot = bot;
     }
 
