@@ -1,12 +1,11 @@
 package com.myfamilybots.instamart.service.impl.handlers;
 
 import com.myfamilybots.instamart.service.MessageService;
-import com.myfamilybots.instamart.service.impl.AbstractMessageMessageHandler;
+import com.myfamilybots.instamart.service.impl.AbstractMessageHandler;
 import com.myfamilybots.instamart.service.impl.services.IncomingDocumentService;
 import com.myfamilybots.instamart.service.impl.services.IncomingMessageService;
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
@@ -21,7 +20,7 @@ import org.telegram.telegrambots.meta.api.objects.Message;
 @Service("MessageHandler")
 @Scope("prototype")
 @Getter
-public class MainMessageHandler extends AbstractMessageMessageHandler {
+public class MainMessageHandler extends AbstractMessageHandler {
     @Autowired
     private ApplicationContext context;
 

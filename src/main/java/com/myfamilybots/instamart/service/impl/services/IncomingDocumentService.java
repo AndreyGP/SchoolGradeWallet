@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 /**
  * Created by Home Work Studio AndrHey [diver]
  * FileName: IncomingDocumentService.java
- * Date/time: 15 декабрь 2021 in 0:05
+ * Date/time: 15 декабрь 2021 in 4,
  */
 @Service("IncomingDocumentService")
 @Scope("prototype")

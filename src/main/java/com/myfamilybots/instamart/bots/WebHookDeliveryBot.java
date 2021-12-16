@@ -1,10 +1,6 @@
 package com.myfamilybots.instamart.bots;
 
 import com.myfamilybots.instamart.service.MessageHandler;
-import com.myfamilybots.instamart.service.MessageService;
-import com.myfamilybots.instamart.service.impl.handlers.MainMessageHandler;
-import com.myfamilybots.instamart.service.impl.services.IncomingDocumentService;
-import com.myfamilybots.instamart.service.impl.services.IncomingMessageService;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +8,6 @@ import org.springframework.context.ApplicationContext;
 import org.telegram.telegrambots.bots.DefaultBotOptions;
 import org.telegram.telegrambots.bots.TelegramWebhookBot;
 import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
-import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.Update;
 
 /**

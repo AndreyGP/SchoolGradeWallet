@@ -1,6 +1,5 @@
 package com.myfamilybots.instamart.service.impl.services;
 
-import com.myfamilybots.instamart.bots.LongPollingDeliveryBot;
 import com.myfamilybots.instamart.service.impl.AbstractMessageService;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
@@ -19,10 +18,11 @@ public class IncomingMessageService extends AbstractMessageService {
 
     @Override
     public SendMessage responseOnIncomingMessage(Message inMessage) {
-        if (!inMessage.getEntities().isEmpty()) {
-
-        }
-        return null;
+        inMessage.getEntities();
+        return SendMessage.builder()
+                .chatId(inMessage.getChatId().toString())
+                .text("Разработчик спит\uD83D\uDE34, бот не работает \uD83E\uDD37\u200D♂️")
+                .build();
     }
 
     @Override

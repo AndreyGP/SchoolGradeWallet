@@ -46,45 +46,25 @@ public class SchoolGradeWalletBot extends TelegramWebhookBot {
     public BotApiMethod<?> onWebhookUpdateReceived(Update update) {
 
         if (update.getMessage() != null && update.getMessage().hasDocument()) {
-            long chatId = update.getMessage().getChatId();
+            String chatId = update.getMessage().getChatId().toString();
             Document document = update.getMessage().getDocument();
             try {
                 uploadFile(document.getFileName(), document.getFileId());
-                return new SendMessage()
-                        .setChatId(chatId)
-                        .setText("File Upload!\nPath: " + fileUploadPath);
+                return SendMessage.builder()
+                        .chatId(chatId)
+                        .text("Upload")
+                        .disableNotification(true)
+                        .build();
             } catch (MalformedURLException e) {
-                return new SendMessage()
-                        .setChatId(chatId)
-                        .setText(e.toString());
+                return SendMessage.builder()
+                        .chatId(chatId)
+                        .text(e.toString())
+                        .build();
             }
         }
 
         if (update.getMessage() != null && update.getMessage().hasText()) {
-            Message inMessage = update.getMessage();
-            long chatId = inMessage.getChatId();
-            String message = inMessage.getText();
-            String messageText;
-//
-            if (inMessage.getText().equals("/start"))
-                return new SendMessage().setChatId(chatId).setText(getWelcomeMessage());
 
-            if (chatId == alenaChatId)
-                return new SendMessage().setChatId(andreiChatId).setText("Алёна: \n" + message);
-
-            if (chatId == andreiChatId)
-                return new SendMessage().setChatId(alenaChatId).setText("Андрей: \n" + message);
-
-
-            if (inMessage.getText().equals("Ты ещё живой?")) {
-                messageText = "Не дождёшься! :)";
-            } else {
-                messageText = inMessage.getChat().getFirstName() + ", Бот пока не работает ";
-            }
-
-            return new SendMessage()
-                    .setChatId(chatId)
-                    .setText(messageText).enableMarkdown(true);
         }
         return null;
     }
@@ -147,7 +127,9 @@ public class SchoolGradeWalletBot extends TelegramWebhookBot {
             JSONObject jresult = new JSONObject(res);
             JSONObject path = jresult.getJSONObject("result");
             String filePath = path.getString("file_path");
+
             URL downoload = new URL("https://api.telegram.org/file/bot" + botToken + "/" + filePath);
+
             ReadableByteChannel rbc = Channels.newChannel(downoload.openStream());
             fos.getChannel().transferFrom(rbc, 0, Long.MAX_VALUE);
 
