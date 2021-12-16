@@ -2,6 +2,7 @@ package com.myfamilybots.instamart.entity.impl;
 
 import com.myfamilybots.instamart.entity.Employee;
 import com.myfamilybots.instamart.entity.enums.EmployeeRole;
+import com.myfamilybots.instamart.util.BotState;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,6 +15,7 @@ import lombok.Setter;
 @Setter
 public abstract class AbstractEmployee implements Employee {
     protected EmployeeRole employeeRole;
+    protected BotState botState = BotState.START;
     protected boolean isTrainee = true;
     protected String chatId;
     protected String username;
