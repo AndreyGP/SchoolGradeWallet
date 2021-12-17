@@ -2,6 +2,7 @@ package com.myfamilybots.schoolgradewallet;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 /**
  * Bot wallet for school grades. Accumulation of valuations as currency with exchange for tangible and intangible values.
@@ -12,6 +13,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * Score 1 = wallet zeroing
  */
 @SpringBootApplication
+@EnableWebMvc
 public class SchoolGradeWalletApplication {
 
     public static void main(String[] args) {
