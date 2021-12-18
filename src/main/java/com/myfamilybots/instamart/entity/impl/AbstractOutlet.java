@@ -14,13 +14,13 @@ import java.util.concurrent.ConcurrentHashMap;
  * FileName: AbstractOutlet.java
  * Date/time: 15 декабрь 2021 in 6:27
  */
-@Getter
 @Setter
+@Getter
 public abstract class AbstractOutlet implements Outlet {
-    protected String outletNumber;
-    protected Super supervisor;
-    protected Map<String, Employee> seniors = new ConcurrentHashMap<>();
-    protected Map<String, Employee> pickers = new ConcurrentHashMap<>();
-    protected Map<String, Employee> couriers = new ConcurrentHashMap<>();
-    protected Map<String, Order> orders = new ConcurrentHashMap<>();
+    private String outletNumber;
+    private Super supervisor;
+    private Map<String, Employee> seniors = new ConcurrentHashMap<>();
+    private Map<String, Employee> pickers = new ConcurrentHashMap<>();
+    private Map<String, Employee> couriers = new ConcurrentHashMap<>();
+    private Map<String, Order> orders = new ConcurrentHashMap<>();
 }

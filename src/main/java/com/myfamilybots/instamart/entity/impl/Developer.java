@@ -1,5 +1,6 @@
 package com.myfamilybots.instamart.entity.impl;
 
+import com.myfamilybots.instamart.entity.Employee;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
@@ -10,5 +11,5 @@ import org.springframework.stereotype.Component;
  */
 @Component("Developer")
 @Scope("prototype")
-public class Developer extends AbstractEmployee {
+public class Developer extends Super implements Employee {
 }

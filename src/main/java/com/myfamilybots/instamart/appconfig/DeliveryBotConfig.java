@@ -53,7 +53,7 @@ public class DeliveryBotConfig {
 //        return bot;
 //    }
 
-    @Bean
+    @Bean("MessageSource")
     public MessageSource messageSource() {
         ReloadableResourceBundleMessageSource source = new ReloadableResourceBundleMessageSource();
         source.setBasename("classpath:messages");

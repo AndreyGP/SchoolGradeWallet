@@ -10,5 +10,5 @@ import org.springframework.stereotype.Component;
  */
 @Component("SeniorPicker")
 @Scope("prototype")
-public class Senior extends AbstractEmployee {
+public class Senior extends Picker {
 }

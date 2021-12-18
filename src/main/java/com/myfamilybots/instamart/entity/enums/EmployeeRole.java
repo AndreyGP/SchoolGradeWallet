@@ -7,6 +7,8 @@ package com.myfamilybots.instamart.entity.enums;
  */
 
 public enum EmployeeRole {
+    NEW("Новый пользователь"),
+    TRAINEE("Стажёр"),
     PICKER("Сборщик"),
     COURIER("Курьер"),
     SENIOR("Старший"),

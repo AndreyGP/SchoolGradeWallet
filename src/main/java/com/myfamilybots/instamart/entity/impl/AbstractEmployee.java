@@ -1,6 +1,7 @@
 package com.myfamilybots.instamart.entity.impl;
 
 import com.myfamilybots.instamart.entity.Employee;
+import com.myfamilybots.instamart.entity.Outlet;
 import com.myfamilybots.instamart.entity.enums.EmployeeRole;
 import com.myfamilybots.instamart.util.BotState;
 import lombok.Getter;
@@ -14,24 +15,25 @@ import lombok.Setter;
 @Getter
 @Setter
 public abstract class AbstractEmployee implements Employee {
-    protected EmployeeRole employeeRole;
-    protected BotState botState = BotState.START;
-    protected boolean isTrainee = true;
-    protected String chatId;
-    protected String username;
-    protected String fullName;
-    protected String firstName;
-    protected String lastName;
-    protected String baseTradePoint;
-    protected String currentTradePoint;
+    private EmployeeRole employeeRole;
+    private BotState botState;
+    private boolean isTrainee;
+    private String chatId;
+    private String phoneNumber;
+    private String username;
+    private String fullName;
+    private String firstName;
+    private String lastName;
+    private Outlet baseOutlet;
+    private Outlet currentOutlet;
 
 
     @Override
     public String getEmployeeInfo() {
         return firstName + "\n"
                 + employeeRole.getEmployeeRole() + "\n"
-                + "Базовая точка: " + baseTradePoint
-                + "В смене: " + currentTradePoint;
+                + "Базовая точка: " + baseOutlet
+                + "В смене: " + currentOutlet;
     }
 
     @Override
@@ -55,13 +57,13 @@ public abstract class AbstractEmployee implements Employee {
     }
 
     @Override
-    public String getBaseTradePoint() {
-        return baseTradePoint;
+    public String getBaseOutlet() {
+        return baseOutlet.getOutletNumber();
     }
 
     @Override
-    public String getCurrentTradePoint() {
-        return currentTradePoint;
+    public String getCurrentOutlet() {
+        return currentOutlet.getOutletNumber();
     }
 
     @Override

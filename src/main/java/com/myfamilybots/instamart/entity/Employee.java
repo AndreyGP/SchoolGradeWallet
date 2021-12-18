@@ -1,6 +1,7 @@
 package com.myfamilybots.instamart.entity;
 
 import com.myfamilybots.instamart.entity.enums.EmployeeRole;
+import com.myfamilybots.instamart.util.BotState;
 
 /**
  * Created by Home Work Studio AndrHey [diver]
@@ -16,9 +17,18 @@ public interface Employee {
     String getEmployeeLastName();
     String getEmployeeFirstAndLastName();
     String getEmployeeFullName();
-    String getBaseTradePoint();
-    String getCurrentTradePoint();
+    String getBaseOutlet();
+    String getCurrentOutlet();
     boolean isTrainee();
     EmployeeRole getEmployeeRole();
 
+    void setEmployeeRole(EmployeeRole dev);
+
+    void setChatId(String chatId);
+
+    void setBotState(BotState devMenu);
+
+    BotState getBotState();
+
+    String getPhoneNumber();
 }

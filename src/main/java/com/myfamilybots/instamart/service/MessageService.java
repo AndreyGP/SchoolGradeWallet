@@ -11,7 +11,7 @@ import org.telegram.telegrambots.meta.api.objects.Message;
 
 public interface MessageService {
 
-    BotApiMethod<Message> responseOnIncomingMessage(Message inMessage);
-    BotApiMethod<Message> responseOnIncomingMessage(Message inMessage, String botToken);
+    BotApiMethod<?> responseOnIncomingMessage(Message inMessage);
+    BotApiMethod<?> responseOnIncomingMessage(Message inMessage, String botToken);
 
 }
