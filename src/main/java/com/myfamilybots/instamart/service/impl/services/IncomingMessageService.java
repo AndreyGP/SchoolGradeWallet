@@ -3,6 +3,7 @@ package com.myfamilybots.instamart.service.impl.services;
 import com.myfamilybots.instamart.service.Handler;
 import com.myfamilybots.instamart.service.impl.AbstractMessageService;
 import com.myfamilybots.instamart.service.impl.handlers.BotCommandHandler;
+import com.myfamilybots.instamart.service.impl.handlers.BotMessageHandler;
 import com.myfamilybots.instamart.service.impl.handlers.BotTextHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -30,9 +31,17 @@ public class IncomingMessageService extends AbstractMessageService {
     public BotApiMethod<?> responseOnIncomingMessage(final Message inMessage) {
         this.inMessage = inMessage;
         if (inMessage.hasEntities() && inMessage.getEntities().get(0).getType().equals("bot_command")) {
-            botCommandHandling();
+//            botCommandHandling();
+            BotCommandHandler handler = context.getBean(BotCommandHandler.class);
+            handler.setInMessage(inMessage);
+            handler.context();
+            response = handler.getResponse();
         } else if (inMessage.hasText()) {
-            botTextHandling();
+//            botTextHandling();
+//            BotMessageHandler handler = context.getBean(BotMessageHandler.class);
+//            handler.responseCallback(inMessage.);
+//            handler.context();
+//            response = handler.getResponse();
         }
         return response;
     }

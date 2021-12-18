@@ -9,6 +9,7 @@ package com.myfamilybots.instamart.util;
 
 public enum BotState {
     START,
+    PHONE_REGISTRATION,
     ROLE_REGISTRATION,
     YOU_NOT_FOUND,
     INIT_OUTLET,

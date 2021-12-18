@@ -45,4 +45,8 @@ public class BotTextService {
                 .text(response)
                 .build();
     }
+
+    public String confirmText() {
+        return "Подтверите Ваш выбор:\n";
+    }
 }

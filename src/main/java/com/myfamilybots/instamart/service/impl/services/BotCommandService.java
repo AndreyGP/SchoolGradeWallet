@@ -42,7 +42,8 @@ public class BotCommandService {
         }
         return SendMessage.builder()
                 .chatId(inMessage.getChatId().toString())
-                .text("Добро пожаловать в Delivery System Bot!\nЧтобы начать, отправьте Ваш номер телефона, указанный в Shopper в формате\n+79998887766\n")
+                .text("Добро пожаловать в Delivery System Bot!\nЧтобы начать, отправьте Ваш номер телефона, "
+                        +"указанный в Shopper в формате\n+79998887766\n")
                 .build();
     }
 

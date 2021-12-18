@@ -41,7 +41,7 @@ public class BotMessageHandler extends AbstractMessageHandler {
         return null;
     }
 
-    public BotApiMethod<?> response(CallbackQuery callbackQuery) {
+    public BotApiMethod<?> responseCallback(CallbackQuery callbackQuery) {
         BotCallbackHandler service = context.getBean(BotCallbackHandler.class);
         service.setCallbackQuery(callbackQuery);
         service.context();

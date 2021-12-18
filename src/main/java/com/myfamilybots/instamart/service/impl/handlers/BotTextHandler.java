@@ -99,7 +99,7 @@ public class BotTextHandler implements Handler {
             response = service.getPhoneNumberAdded();
             ((SendMessage) response).enableMarkdown(true);
             ((SendMessage) response).setReplyMarkup(context.getBean(ReplyButtonService.class).getRoleQuestionButtons());
-            employee.setBotState(BotState.ROLE_REGISTRATION);
+            employee.setBotState(BotState.PHONE_REGISTRATION);
         }
     }
 }

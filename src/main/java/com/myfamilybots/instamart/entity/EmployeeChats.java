@@ -6,6 +6,7 @@ import com.myfamilybots.instamart.entity.impl.NewEmployee;
 import com.myfamilybots.instamart.util.BotState;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
+import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 
 import java.util.Map;
@@ -104,5 +105,9 @@ public class EmployeeChats {
         employee.setChatId(chatId);
         employee.setBotState(BotState.START);
         employeeMap.put(chatId, employee);
+    }
+
+    public void remove(String chatId) {
+        employeeMap.remove(chatId);
     }
 }

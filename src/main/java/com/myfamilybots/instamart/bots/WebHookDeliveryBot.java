@@ -1,6 +1,5 @@
 package com.myfamilybots.instamart.bots;
 
-import com.myfamilybots.instamart.service.impl.handlers.BotCallbackHandler;
 import com.myfamilybots.instamart.service.impl.handlers.BotMessageHandler;
 import lombok.Getter;
 import lombok.Setter;
@@ -35,7 +34,7 @@ public class WebHookDeliveryBot extends TelegramWebhookBot {
         if (update.getMessage() == null)
             return null;
         if (update.hasCallbackQuery()) {
-            return context.getBean(BotMessageHandler.class).response(update.getCallbackQuery());
+            return context.getBean(BotMessageHandler.class).responseCallback(update.getCallbackQuery());
         }
         return context.getBean(BotMessageHandler.class).response(update.getMessage(), botToken);
     }

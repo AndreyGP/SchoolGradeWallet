@@ -49,4 +49,28 @@ public class ReplyButtonService {
 
         return inlineKeyboardMarkup;
     }
+
+    public InlineKeyboardMarkup getConfirmButtons() {
+        InlineKeyboardMarkup inlineKeyboardMarkup = new InlineKeyboardMarkup();
+
+        InlineKeyboardButton yes = new InlineKeyboardButton();
+        yes.setText("Да");
+        InlineKeyboardButton no = new InlineKeyboardButton();
+        no.setText("Нет");
+
+        yes.setCallbackData("yes");
+        no.setCallbackData("no");
+
+        List<InlineKeyboardButton> keyboardButtons = new ArrayList<>();
+        keyboardButtons.add(yes);
+        keyboardButtons.add(no);
+
+        List<List<InlineKeyboardButton>> buttons = new ArrayList<>();
+        buttons.add(keyboardButtons);
+
+        inlineKeyboardMarkup.setKeyboard(buttons);
+
+        return inlineKeyboardMarkup;
+    }
+
 }
